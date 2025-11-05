@@ -28,7 +28,7 @@ const RegisterScreen = ({ navigation }) => {
   });
   const [errors, setErrors] = useState({});
 
-  // ✅ Password Requirements
+  //  Password Requirements
   const passwordRequirements = [
     { text: "At least 8 characters", test: (p) => p.length >= 8 },
     { text: "At least 1 uppercase letter", test: (p) => /[A-Z]/.test(p) },
@@ -37,7 +37,7 @@ const RegisterScreen = ({ navigation }) => {
     { text: "At least 1 special character", test: (p) => /[!@#$%^&*(),.?\":{}|<>]/.test(p) },
   ];
 
-  // ✅ Validation
+  //  Validation
   const validateStep = (step) => {
     const newErrors = {};
     if (step === 1) {
@@ -77,7 +77,7 @@ const RegisterScreen = ({ navigation }) => {
     }
   };
 
-  // ✅ Progress line width calculation
+  //  Progress line width calculation
   const progressWidth = (currentStep / 3) * 100;
 
   return (
@@ -104,7 +104,7 @@ const RegisterScreen = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder="Full Name"
-                placeholderTextColor="#999"
+                placeholderTextColor="#e4e1e1ff"
                 value={formData.fullName}
                 onChangeText={(t) => setFormData({ ...formData, fullName: t })}
               />
@@ -113,7 +113,7 @@ const RegisterScreen = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder="Email Address"
-                placeholderTextColor="#999"
+                placeholderTextColor="#e4e1e1ff"
                 keyboardType="email-address"
                 value={formData.email}
                 onChangeText={(t) => setFormData({ ...formData, email: t })}
@@ -136,7 +136,7 @@ const RegisterScreen = ({ navigation }) => {
                 <TextInput
                   style={[styles.input, { flex: 1 }]}
                   placeholder="Create Password"
-                  placeholderTextColor="#999"
+                  placeholderTextColor="#e4e1e1ff"
                   secureTextEntry={!showPassword}
                   value={formData.password}
                   onChangeText={(t) => setFormData({ ...formData, password: t })}
@@ -145,7 +145,7 @@ const RegisterScreen = ({ navigation }) => {
                   <Ionicons
                     name={showPassword ? "eye-off-outline" : "eye-outline"}
                     size={22}
-                    color="#666"
+                    color="#585757ff"
                     style={styles.eyeIcon}
                   />
                 </TouchableOpacity>
@@ -157,7 +157,7 @@ const RegisterScreen = ({ navigation }) => {
                 <TextInput
                   style={[styles.input, { flex: 1 }]}
                   placeholder="Confirm Password"
-                  placeholderTextColor="#999"
+                  placeholderTextColor="#e4e1e1ff"
                   secureTextEntry={!showConfirmPassword}
                   value={formData.confirmPassword}
                   onChangeText={(t) =>
@@ -170,7 +170,7 @@ const RegisterScreen = ({ navigation }) => {
                   <Ionicons
                     name={showConfirmPassword ? "eye-off-outline" : "eye-outline"}
                     size={22}
-                    color="#666"
+                    color="#585757ff"
                     style={styles.eyeIcon}
                   />
                 </TouchableOpacity>
@@ -212,10 +212,11 @@ const RegisterScreen = ({ navigation }) => {
                   By creating an account, you agree to our Terms of Service and Privacy Policy.
                   {"\n\n"}
                   1. You are responsible for maintaining confidentiality of your account.
-                  {"\n\n"}
+                  {"\n"}
                   2. Any misuse or violation may lead to account suspension.
-                  {"\n\n"}
+                  {"\n"}
                   3. Please review our Privacy Policy to understand how we use your data.
+                  {"\n"}
                 </Text>
               </ScrollView>
 
@@ -260,14 +261,14 @@ const RegisterScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#f2f4f8" },
+  container: { flex: 1, backgroundColor: "#95ade0ff" },
   scroll: { flexGrow: 1, justifyContent: "center", padding: 20 },
   card: {
-    backgroundColor: "#fff",
-    borderRadius: 16,
+    backgroundColor: "#6781b7ff",
+    borderRadius: 15,
     padding: 25,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
+    shadowColor: "#0e0c0cff",
+    shadowOpacity: 0.3,
     shadowRadius: 10,
     elevation: 6,
   },
@@ -276,7 +277,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 10,
-    color: "#111827",
+    color: "#0e1641ff",
   },
   progressContainer: {
     alignItems: "center",
@@ -291,36 +292,36 @@ const styles = StyleSheet.create({
   },
   progressBar: {
     height: 8,
-    backgroundColor: "#4f46e5",
+    backgroundColor: "#0d0c57ff",
     borderRadius: 5,
   },
   stepText: {
     marginTop: 6,
     fontWeight: "500",
-    color: "#4f46e5",
+    color: "#0e06a2ff",
   },
   subtitle: {
     fontSize: 17,
     fontWeight: "600",
     textAlign: "center",
-    color: "#333",
+    color: "#282525ff",
     marginBottom: 20,
   },
   input: {
     borderWidth: 1,
-    borderColor: "#d1d5db",
+    borderColor: "#0065fdff",
     backgroundColor: "#f9fafb",
     borderRadius: 10,
     padding: 12,
     fontSize: 15,
-    color: "#111",
+    color: "#11012bff",
     marginBottom: 10,
   },
   passwordContainer: {
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#d1d5db",
+    borderColor: "#0065fdff",
     backgroundColor: "#f9fafb",
     borderRadius: 10,
     paddingHorizontal: 10,
@@ -341,16 +342,16 @@ const styles = StyleSheet.create({
   },
   nextButton: {
     flex: 1,
-    backgroundColor: "#4f46e5",
+    backgroundColor: "#cccaedff",
     padding: 14,
     borderRadius: 10,
     alignItems: "center",
     marginHorizontal: 5,
   },
-  nextText: { color: "#fff", fontWeight: "bold", fontSize: 16 },
+  nextText: { color: "#031f7aff", fontWeight: "bold", fontSize: 16 },
   backButton: {
     flex: 1,
-    backgroundColor: "#e5e7eb",
+    backgroundColor: "#031f7aff",
     padding: 14,
     borderRadius: 10,
     alignItems: "center",
@@ -359,13 +360,13 @@ const styles = StyleSheet.create({
   backText: { color: "#111", fontWeight: "600" },
   termsBox: {
     borderWidth: 1,
-    borderColor: "#e5e7eb",
+    borderColor: "#e6ecf8ff",
     borderRadius: 8,
     padding: 10,
     marginBottom: 10,
     height: 140,
   },
-  termsText: { color: "#444", fontSize: 13, lineHeight: 18 },
+  termsText: { color: "#0e0b0bff", fontSize: 12, lineHeight: 18 },
   checkboxContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -384,7 +385,7 @@ const styles = StyleSheet.create({
   checkboxChecked: { backgroundColor: "#4f46e5" },
   checkmark: { color: "#fff", fontWeight: "bold" },
   checkboxLabel: { color: "#333", flexShrink: 1 },
-  error: { color: "#ef4444", fontSize: 13, marginBottom: 5 },
+  error: { color: "#7b0404ff", fontSize: 13, marginBottom: 5 },
 });
 
 export default RegisterScreen;

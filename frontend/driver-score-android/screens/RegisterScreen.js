@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
   TextInput,
-  TouchableOpacity,
-  ScrollView,
+  Button,
   StyleSheet,
-  SafeAreaView,
-  StatusBar,
   Alert,
-  Animated,
+  TouchableOpacity,
+  ActivityIndicator,
+  StatusBar,
+  ScrollView,
 } from "react-native";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import Ionicons from "@expo/vector-icons/Ionicons";
 

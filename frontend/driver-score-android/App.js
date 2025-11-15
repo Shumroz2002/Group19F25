@@ -23,23 +23,18 @@ export default function App() {
     return unsubscribe;
   }, []);
 
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        {user ? (
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{ headerShown: false }}
-          />
-        ) : (
-          <>
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Register" component={RegisterScreen} />
-            <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-          </>
-        )}
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+ return (
+  <NavigationContainer>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false, // 👈 hides the top white header bar for all screens
+      }}
+    >
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} />
+    </Stack.Navigator>
+  </NavigationContainer>
+);
 }

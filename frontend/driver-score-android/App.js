@@ -7,19 +7,22 @@ import { auth } from "./firebaseConfig";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ForgotPasswordScreen from "./screens/ForgotPasswordScreen";
-import Dashboard from "./screens/Dashboard"; // ✅ Dashboard screen
-import HomeScreen from "./screens/HomeScreen"; // optional
+import Dashboard from "./screens/Dashboard";
+import HomeScreen from "./screens/HomeScreen";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [user, setUser] = useState(null);
 
-  // ✅ Persist login (Firebase listener)
   useEffect(() => {
+    // 👇 This ensures every time the app starts, user is logged out
+    auth.signOut();
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
+
     return unsubscribe;
   }, []);
 
@@ -27,21 +30,14 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerShown: false, // hides the top white header globally
+          headerShown: false, // hides white header globally
         }}
       >
-        {user ? (
-          // If user logged in, show Dashboard
-          <Stack.Screen name="Dashboard" component={Dashboard} />
-        ) : (
-          // Otherwise show auth flow
-          <>
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Register" component={RegisterScreen} />
-            <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-            <Stack.Screen name="Dashboard" component={Dashboard} />
-          </>
-        )}
+        {/* Always start with Login first */}
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+        <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -81,7 +81,7 @@ const RegisterScreen = ({ navigation }) => {
           formData.password
         );
         Alert.alert("Account Created!", `Welcome, ${formData.fullName}!`);
-        navigation.navigate("Login");
+        navigation.replace("Dashboard");
       } catch (error) {
         Alert.alert("Error", error.message);
       }

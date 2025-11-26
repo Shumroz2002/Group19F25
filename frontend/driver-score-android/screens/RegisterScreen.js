@@ -81,7 +81,7 @@ const RegisterScreen = ({ navigation }) => {
           formData.password
         );
         Alert.alert("Account Created!", `Welcome, ${formData.fullName}!`);
-        navigation.navigate("Login");
+        navigation.replace("MainTab");
       } catch (error) {
         Alert.alert("Error", error.message);
       }
@@ -91,7 +91,7 @@ const RegisterScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
-      
+
       {/* Background circles - EXACT colors from LoginScreen */}
       <View style={styles.circle1} />
       <View style={styles.circle2} />
@@ -108,7 +108,7 @@ const RegisterScreen = ({ navigation }) => {
             <View style={styles.iconContainer}>
               <Ionicons name="person" size={32} color="#3d5a80" />
             </View>
-            
+
             <Text style={styles.title}>Register</Text>
 
             {/* Progress indicator */}
@@ -254,7 +254,7 @@ const RegisterScreen = ({ navigation }) => {
                 <Text style={styles.termsTitle}>
                   Terms of Service and Privacy Policy.
                 </Text>
-                
+
                 <View style={styles.termsBox}>
                   <Text style={styles.termsText}>
                     1. You are responsible for maintaining confidentiality of your account.
@@ -494,6 +494,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderRadius: 12,
     alignItems: "center",
+    justifyContent: "center",
     marginTop: 12,
     flex: 1,
     marginHorizontal: 5,
@@ -503,6 +504,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "bold",
     letterSpacing: 0.5,
+    textAlign: "center",
   },
   secondaryButton: {
     backgroundColor: "rgba(45, 65, 95, 0.8)",

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useEffect, useState, useRef } from 'react';
-=======
-import React, { useEffect, useRef } from 'react';
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
+﻿import React, { useEffect, useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -11,7 +7,6 @@ import {
   Animated,
   Dimensions,
   StatusBar,
-<<<<<<< HEAD
   Alert,
   ScrollView,
 } from 'react-native';
@@ -41,18 +36,6 @@ const DashboardScreen = ({ navigation }) => {
   const lastLocation = useRef(null);
   const timerRef = useRef(null);
 
-=======
-  SafeAreaView,
-} from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-
-const { width, height } = Dimensions.get('window');
-
-const DashboardScreen = () => {
-  const pulseAnim = useRef(new Animated.Value(1)).current;
-  const rotateAnim = useRef(new Animated.Value(0)).current;
-
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
   useEffect(() => {
     // Pulse animation for status indicator
     Animated.loop(
@@ -78,7 +61,6 @@ const DashboardScreen = () => {
         useNativeDriver: true,
       })
     ).start();
-<<<<<<< HEAD
 
     // Cleanup on unmount
     return () => {
@@ -208,10 +190,6 @@ const DashboardScreen = () => {
     return `${mins}m ${secs}s`;
   };
 
-=======
-  }, []);
-
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
   const spin = rotateAnim.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg'],
@@ -219,16 +197,11 @@ const DashboardScreen = () => {
 
   return (
     <LinearGradient
-<<<<<<< HEAD
       colors={colors.background}
-=======
-      colors={['#0B0C1E', '#181A3A']}
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
       style={styles.container}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
     >
-<<<<<<< HEAD
       <StatusBar barStyle={isDarkMode ? "light-content" : "dark-content"} />
       <SafeAreaView style={styles.safeArea}>
         <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
@@ -245,22 +218,6 @@ const DashboardScreen = () => {
                 <Text style={styles.profileText}>{userData?.initials || 'JD'}</Text>
               </LinearGradient>
             </TouchableOpacity>
-=======
-      <StatusBar barStyle="light-content" />
-      <SafeAreaView style={styles.safeArea}>
-        <View style={styles.content}>
-          {/* Header */}
-          <View style={styles.header}>
-            <Text style={styles.headerTitle}>Dashboard</Text>
-            <LinearGradient
-              colors={['#5A5CFF', '#7B7DFF']}
-              style={styles.profileIcon}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-            >
-              <Text style={styles.profileText}>JD</Text>
-            </LinearGradient>
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
           </View>
 
           {/* Speed Card */}
@@ -278,35 +235,21 @@ const DashboardScreen = () => {
                 style={styles.speedRingGradient}
               />
             </Animated.View>
-<<<<<<< HEAD
 
             <View style={[styles.speedCard, { borderColor: colors.cardBorder, backgroundColor: isDarkMode ? 'transparent' : colors.cardBg[0] }]}>
               <LinearGradient
                 colors={colors.cardBg}
-=======
-            
-            <View style={styles.speedCard}>
-              <LinearGradient
-                colors={['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.05)']}
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
                 style={styles.speedCardGradient}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-<<<<<<< HEAD
                 <Text style={[styles.speedLabel, { color: colors.subText }]}>CURRENT SPEED</Text>
                 <Text style={[styles.speedValue, { color: colors.text }]}>{currentSpeed}</Text>
                 <Text style={[styles.speedUnit, { color: colors.subText }]}>km/h</Text>
-=======
-                <Text style={styles.speedLabel}>CURRENT SPEED</Text>
-                <Text style={styles.speedValue}>68</Text>
-                <Text style={styles.speedUnit}>km/h</Text>
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
               </LinearGradient>
             </View>
           </View>
 
-<<<<<<< HEAD
           {/* Status - Moved Above Buttons */}
           <View style={styles.statusContainer}>
             <Animated.View
@@ -329,11 +272,6 @@ const DashboardScreen = () => {
               onPress={startTrip}
               disabled={isRecording}
             >
-=======
-          {/* Action Buttons */}
-          <View style={styles.buttonsContainer}>
-            <TouchableOpacity activeOpacity={0.8} style={styles.buttonWrapper}>
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
               <LinearGradient
                 colors={['#00D9A3', '#00B87A']}
                 style={styles.button}
@@ -344,16 +282,12 @@ const DashboardScreen = () => {
               </LinearGradient>
             </TouchableOpacity>
 
-<<<<<<< HEAD
             <TouchableOpacity
               activeOpacity={0.8}
               style={[styles.buttonWrapper, !isRecording && { opacity: 0.5 }]}
               onPress={stopTrip}
               disabled={!isRecording}
             >
-=======
-            <TouchableOpacity activeOpacity={0.8} style={styles.buttonWrapper}>
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
               <LinearGradient
                 colors={['#FF5C5C', '#E63946']}
                 style={styles.button}
@@ -365,33 +299,14 @@ const DashboardScreen = () => {
             </TouchableOpacity>
           </View>
 
-<<<<<<< HEAD
           {/* Trip Summary Card */}
           <View style={[styles.summaryCard, { borderColor: colors.cardBorder, backgroundColor: isDarkMode ? 'transparent' : colors.cardBg[0] }]}>
             <LinearGradient
               colors={colors.cardBg}
-=======
-          {/* Status */}
-          <View style={styles.statusContainer}>
-            <Animated.View
-              style={[
-                styles.statusIndicator,
-                { opacity: pulseAnim },
-              ]}
-            />
-            <Text style={styles.statusText}>Status: Recording...</Text>
-          </View>
-
-          {/* Trip Summary Card */}
-          <View style={styles.summaryCard}>
-            <LinearGradient
-              colors={['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.05)']}
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
               style={styles.summaryCardGradient}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}
             >
-<<<<<<< HEAD
               <Text style={[styles.summaryTitle, { color: colors.text }]}>Current Trip</Text>
               <View style={styles.summaryGrid}>
                 <View style={styles.summaryItem}>
@@ -407,28 +322,10 @@ const DashboardScreen = () => {
                 <View style={styles.summaryItem}>
                   <Text style={[styles.summaryValue, { color: colors.text }]}>{Math.floor(tripDuration / 60)}</Text>
                   <Text style={[styles.summaryLabel, { color: colors.subText }]}>MINUTES</Text>
-=======
-              <Text style={styles.summaryTitle}>Trip Summary</Text>
-              <View style={styles.summaryGrid}>
-                <View style={styles.summaryItem}>
-                  <Text style={styles.summaryValue}>15</Text>
-                  <Text style={styles.summaryLabel}>DISTANCE</Text>
-                </View>
-                <View style={styles.summaryDivider} />
-                <View style={styles.summaryItem}>
-                  <Text style={styles.summaryValue}>92</Text>
-                  <Text style={styles.summaryLabel}>SCORE</Text>
-                </View>
-                <View style={styles.summaryDivider} />
-                <View style={styles.summaryItem}>
-                  <Text style={styles.summaryValue}>22</Text>
-                  <Text style={styles.summaryLabel}>DURATION</Text>
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
                 </View>
               </View>
             </LinearGradient>
           </View>
-<<<<<<< HEAD
 
           {/* Safe Drive Message Card */}
           <View style={[styles.messageCard, { borderColor: colors.cardBorder, backgroundColor: isDarkMode ? 'transparent' : colors.cardBg[0] }]}>
@@ -438,31 +335,11 @@ const DashboardScreen = () => {
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}
             >
-              <Text style={styles.messageText}>Drive Safe, Arrive Safe 🚗✨</Text>
+              <Text style={styles.messageText}>Drive Safe, Arrive Safe ≡ƒÜùΓ£¿</Text>
               <Text style={styles.subMessageText}>Keep your eyes on the road!</Text>
             </LinearGradient>
           </View>
         </ScrollView>
-=======
-        </View>
-
-        {/* Bottom Navigation */}
-        <View style={styles.bottomNav}>
-          <View style={styles.navItem}>
-            <View style={styles.activeIndicator} />
-            <Text style={styles.navIcon}>🏠</Text>
-            <Text style={[styles.navLabel, styles.navLabelActive]}>Home</Text>
-          </View>
-          <TouchableOpacity style={styles.navItem}>
-            <Text style={[styles.navIcon, styles.navIconInactive]}>📊</Text>
-            <Text style={styles.navLabel}>Summary</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.navItem}>
-            <Text style={[styles.navIcon, styles.navIconInactive]}>⚙</Text>
-            <Text style={styles.navLabel}>Settings</Text>
-          </TouchableOpacity>
-        </View>
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
       </SafeAreaView>
     </LinearGradient>
   );
@@ -475,31 +352,19 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
-<<<<<<< HEAD
   scrollContent: {
     padding: 24,
     paddingBottom: 40,
-=======
-  content: {
-    flex: 1,
-    paddingTop: 20,
-    paddingHorizontal: 24,
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-<<<<<<< HEAD
     marginBottom: 10,
-=======
-    marginBottom: 40,
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
   },
   headerTitle: {
     fontSize: 28,
     fontWeight: '700',
-<<<<<<< HEAD
   },
   profileIcon: {
     width: 32,
@@ -539,58 +404,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     overflow: 'hidden',
-=======
-    color: '#FFFFFF',
-  },
-  profileIcon: {
-    width: 42,
-    height: 42,
-    borderRadius: 21,
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: '#5A5CFF',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.6,
-    shadowRadius: 10,
-    elevation: 8,
-  },
-  profileText: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#FFFFFF',
-  },
-  speedCardContainer: {
-    alignItems: 'center',
-    marginBottom: 40,
-    position: 'relative',
-    height: 240,
-    justifyContent: 'center',
-  },
-  speedRing: {
-    position: 'absolute',
-    width: 228,
-    height: 228,
-    borderRadius: 114,
-  },
-  speedRingGradient: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 114,
-    opacity: 0.6,
-  },
-  speedCard: {
-    width: 220,
-    height: 220,
-    borderRadius: 110,
-    overflow: 'hidden',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
   },
   speedCardGradient: {
     width: '100%',
     height: '100%',
-<<<<<<< HEAD
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -612,37 +429,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 20,
-=======
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  speedLabel: {
-    fontSize: 13,
-    color: '#A0A0A0',
-    marginBottom: 8,
-    letterSpacing: 1.5,
-    fontWeight: '500',
-  },
-  speedValue: {
-    fontSize: 52,
-    fontWeight: '700',
-    color: '#FFFFFF',
-  },
-  speedUnit: {
-    fontSize: 16,
-    color: '#A0A0A0',
-    marginTop: 4,
-  },
-  buttonsContainer: {
-    flexDirection: 'row',
-    marginBottom: 20,
-    paddingHorizontal: 8,
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
   },
   buttonWrapper: {
     flex: 1,
     marginHorizontal: 8,
-<<<<<<< HEAD
     borderRadius: 16,
     overflow: 'hidden',
     shadowColor: '#000',
@@ -661,40 +451,18 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     textTransform: 'uppercase',
     letterSpacing: 1,
-=======
-  },
-  button: {
-    paddingVertical: 16,
-    borderRadius: 20,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
-    elevation: 10,
-  },
-  buttonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#FFFFFF',
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
   },
   statusContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-<<<<<<< HEAD
     marginBottom: 16,
-=======
-    marginBottom: 24,
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
   },
   statusIndicator: {
     width: 10,
     height: 10,
     borderRadius: 5,
     backgroundColor: '#00D9A3',
-<<<<<<< HEAD
     marginRight: 8,
   },
   statusText: {
@@ -713,30 +481,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     marginBottom: 16,
-=======
-    marginRight: 10,
-  },
-  statusText: {
-    fontSize: 14,
-    color: '#E5E5E5',
-    fontWeight: '500',
-  },
-  summaryCard: {
-    borderRadius: 20,
-    overflow: 'hidden',
-    marginBottom: 20,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
-  },
-  summaryCardGradient: {
-    padding: 24,
-  },
-  summaryTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#FFFFFF',
-    marginBottom: 20,
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
   },
   summaryGrid: {
     flexDirection: 'row',
@@ -744,7 +488,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   summaryItem: {
-<<<<<<< HEAD
     alignItems: 'center',
     flex: 1,
   },
@@ -784,69 +527,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#E0E0E0',
     textAlign: 'center',
-=======
-    flex: 1,
-    alignItems: 'center',
-  },
-  summaryDivider: {
-    width: 1,
-    height: 40,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-  },
-  summaryValue: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#FFFFFF',
-    marginBottom: 4,
-  },
-  summaryLabel: {
-    fontSize: 11,
-    color: '#A0A0A0',
-    letterSpacing: 1,
-    fontWeight: '500',
-  },
-  bottomNav: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    backgroundColor: 'rgba(11, 12, 30, 0.98)',
-    paddingTop: 16,
-    paddingBottom: 30,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.1)',
-  },
-  navItem: {
-    alignItems: 'center',
-    position: 'relative',
-    paddingTop: 8,
-  },
-  activeIndicator: {
-    position: 'absolute',
-    top: 0,
-    width: 40,
-    height: 3,
-    backgroundColor: '#5A5CFF',
-    borderRadius: 2,
-    shadowColor: '#5A5CFF',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 1,
-    shadowRadius: 8,
-    elevation: 5,
-  },
-  navIcon: {
-    fontSize: 24,
-    marginBottom: 4,
-  },
-  navIconInactive: {
-    opacity: 0.5,
-  },
-  navLabel: {
-    fontSize: 12,
-    color: '#A0A0A0',
-    fontWeight: '500',
-  },
-  navLabelActive: {
-    color: '#5A5CFF',
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
   },
 });
 

@@ -7,15 +7,10 @@ import { auth } from "./firebaseConfig";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ForgotPasswordScreen from "./screens/ForgotPasswordScreen";
-<<<<<<< HEAD
 import MainTabNavigator from "./navigation/MainTabNavigator";
 import ProfileScreen from "./screens/ProfileScreen";
 
 import { ThemeProvider } from "./context/ThemeContext";
-=======
-import Dashboard from "./screens/Dashboard";
-import HomeScreen from "./screens/HomeScreen";
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02
 
 const Stack = createNativeStackNavigator();
 
@@ -34,7 +29,6 @@ export default function App() {
   }, []);
 
   return (
-<<<<<<< HEAD
     <ThemeProvider>
       <NavigationContainer>
         <Stack.Navigator
@@ -53,21 +47,3 @@ export default function App() {
     </ThemeProvider>
   );
 }
-=======
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false, // hides white header globally
-        }}
-      >
-        {/* Always start with Login first */}
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
-        <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-        <Stack.Screen name="Dashboard" component={Dashboard} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
->>>>>>> 85b724112f9d32666a0cdaf94b3243d105cfaa02

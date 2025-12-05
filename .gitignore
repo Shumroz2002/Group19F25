@@ -7,3 +7,7 @@ backend/.env
 
 # Logs
 *.log
+
+
+# Visual Studio cache
+.vs/
